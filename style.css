@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-image: url("https://img.freepik.com/free-photo/digital-art-isolated-house_23-2151041351.jpg?ga=GA1.1.1813641240.1735317211&semt=ais_incoming");
+    background-size: cover;
+    background-repeat: no-repeat;
+    user-select: none;
+}
+
+.winDiv {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+.winDec {
+    font-size: 45px;
+    text-shadow: 2px 2px 2px red;
+    font-weight: bold;
+    color: black;
+}
+
+.diceParent {
+    display: flex;
+    align-items: center;
+}
+
+.diceChild {
+    width: 50vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btnDiv {
+    width: 100vw;
+    height: 20vh;
+}
+
+.btnDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#playBtn {
+    width: 20%;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(3600deg);
+    }
+}
+
+.roller {
+    animation: rotate 2s linear;
+}

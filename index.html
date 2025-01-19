@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="winDiv">
+        <h1 class="winDec">Press play to begin!</h1>
+    </div>
+
+    <div class="diceParent">
+        <div class="diceChild"><img src="asset/player1.png" alt=""><img id="img1" src="asset/dice1.png" alt=""></div>
+        <div class="diceChild"><img src="asset/player2.png" alt=""><img id="img2" src="asset/dice1.png" alt=""></div>
+    </div>
+
+    <div class="btnDiv"><img type="button" id="playBtn" src="asset/playbutton.png" alt=""></div>
+
+    <script>
+        document.getElementById("playBtn").addEventListener("click", function () {
+            var a = Math.floor(Math.random() * 6) + 1;
+            var b = Math.floor(Math.random() * 6) + 1;
+
+            function imgGenerate(x) {
+                var img = "asset/dice" + x + ".png";
+                return img;
+            }
+            document.querySelector("#img1").setAttribute("src", imgGenerate(a));
+            document.querySelector("#img2").setAttribute("src", imgGenerate(b));
+
+            document.querySelector("#img1").classList.add("roller");
+            document.querySelector("#img2").classList.add("roller");
+            setTimeout(function () {
+                var txt = "It is a Draw !";
+                if (a > b) {
+                    var txt = "The winner is Player 1 !";
+                }
+                if (b > a) {
+                    var txt = "The winner is Player 2 !";
+                }
+
+                document.querySelector(".winDec").textContent = txt;
+
+                document.querySelector("#img1").classList.remove("roller");
+                document.querySelector("#img2").classList.remove("roller");
+            }, 1000);
+
+
+        })
+    </script>
+</body>
+
+</html>
