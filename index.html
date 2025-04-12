@@ -20,37 +20,54 @@
 
     <div class="btnDiv"><img type="button" id="playBtn" src="asset/playbutton.png" alt=""></div>
 
+
     <script>
+        // Add an event listener to the "playBtn" button
         document.getElementById("playBtn").addEventListener("click", function () {
+            // Generate random numbers between 1 and 6 for both dice
             var a = Math.floor(Math.random() * 6) + 1;
             var b = Math.floor(Math.random() * 6) + 1;
 
+            console.log("Player 1 rolled:", a);
+            console.log("Player 2 rolled:", b);
+
+            // Function to return the image path based on dice value
             function imgGenerate(x) {
                 var img = "asset/dice" + x + ".png";
+                console.log("Generated image path for dice " + x + ": " + img);
                 return img;
             }
+
+            // Set the image source for both dice
             document.querySelector("#img1").setAttribute("src", imgGenerate(a));
             document.querySelector("#img2").setAttribute("src", imgGenerate(b));
 
+            // Add a rolling animation class to both dice
             document.querySelector("#img1").classList.add("roller");
             document.querySelector("#img2").classList.add("roller");
+
+            // Use setTimeout to wait 1 second before deciding the winner
             setTimeout(function () {
                 var txt = "It is a Draw !";
+
+                // Compare dice values and set the winner message
                 if (a > b) {
-                    var txt = "The winner is Player 1 !";
+                    txt = "The winner is Player 1 !";
                 }
                 if (b > a) {
-                    var txt = "The winner is Player 2 !";
+                    txt = "The winner is Player 2 !";
                 }
 
+                console.log("Result:", txt);
+
+                // Display the winner message
                 document.querySelector(".winDec").textContent = txt;
 
+                // Remove the roller animation class
                 document.querySelector("#img1").classList.remove("roller");
                 document.querySelector("#img2").classList.remove("roller");
             }, 1000);
-
-
-        })
+        });
     </script>
 </body>
 
